@@ -1,16 +1,35 @@
 #include "../include/monitor.h"
 #include <iostream>
+#include <unistd.h>
 
 void SystemMonitor::displaySystemInfo() {
     std::cout << "Displaying system information..." << std::endl;
-
-    getCPUUsage();
-    getMemoryUsage();
-    getDiskUsage();
+    while(1) {
+        getCPUUsage();
+        getMemoryUsage();
+        getDiskUsage();
+        sleep(3);
+        std::cout << std::endl;
+    }
+    // getCPUUsage();
+    // getMemoryUsage();
+    // getDiskUsage();
 }
 
 void SystemMonitor::getCPUUsage() {
-    std::cout << "CPU Usage: " << std::endl;  
+
+    FILETIME idleTime, kernelTime, userTime;
+    if (GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
+    ULONGLONG idle = ((ULONGLONG)idleTime.dwHighDateTime << 32) + idleTime.dwLowDateTime;
+    ULONGLONG kernel = ((ULONGLONG)kernelTime.dwHighDateTime << 32) + kernelTime.dwLowDateTime;
+    ULONGLONG user = ((ULONGLONG)userTime.dwHighDateTime << 32) + userTime.dwLowDateTime;
+    
+    ULONGLONG total = kernel + user;
+    double cpuUsage = (1.0 - (double)idle / total) * 100;
+    std::cout << "CPU Usage: " << cpuUsage << "%" << std::endl;  
+    } else {
+        std::cout << "Failed to retrieve CPU information" << std::endl;
+    }
 }
 
 void SystemMonitor::getMemoryUsage() {
@@ -26,5 +45,11 @@ void SystemMonitor::getMemoryUsage() {
 }
 
 void SystemMonitor::getDiskUsage() {
-    std::cout << "Disk Usage: " << std::endl;
+    ULARGE_INTEGER freebytes, totalbytes, totalfreebytes;
+    if (GetDiskFreeSpaceEx(nullptr, &freebytes, &totalbytes, &totalfreebytes)){
+        std::cout << "Free space in Disk: " << freebytes.QuadPart / (1024*1024*1024) << " GB" <<std::endl;
+        std::cout << "Total space in Disk: " << totalbytes.QuadPart / (1024*1024*1024) << " GB"<<std::endl;
+    } else {
+        std::cout << "Failed to retrieve Disc information" << std::endl;
+    }
 }
