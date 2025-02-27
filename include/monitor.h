@@ -2,7 +2,7 @@
 #define MONITOR_H
 
 #include <iostream>
-#include <Windows.h>  // Para funções relacionadas ao sistema (Windows)
+#include <Windows.h>  
 
 class SystemMonitor {
 public:

@@ -2,8 +2,8 @@
 #include "../include/monitor.h"
 
 int main() {
-    // Exemplo de inicialização e chamada de monitoramento de sistema
     SystemMonitor monitor;
     monitor.displaySystemInfo();
     return 0;
 }
+//gcc -I../include ./src/main.cpp ./src/monitor.cpp -o main -lstdc++
