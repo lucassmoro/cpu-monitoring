@@ -26,7 +26,7 @@ void SystemMonitor::getCPUUsage() {
     
     ULONGLONG total = kernel + user;
     double cpuUsage = (1.0 - (double)idle / total) * 100;
-    std::cout << "CPU Usage: " << cpuUsage << "%" << std::endl;  
+    std::cout << "CPU Usage: " << cpuUsage << " %" << std::endl;  
     } else {
         std::cout << "Failed to retrieve CPU information" << std::endl;
     }
