@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 project(cpu-monitoring)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
+set(Qt6_DIR "C:/Qt/6.5.3/msvc2019_64/lib/cmake/Qt6")
+set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 qt_standard_project_setup()
 
