@@ -15,11 +15,6 @@ qt_add_executable(cpu-monitoring
 target_link_libraries(cpu-monitoring
     PRIVATE
         Qt::Core
-
-)
-target_link_libraries(cpu-monitoring
-    PRIVATE
-        Qt::Core
         Qt::Widgets
 )
 
