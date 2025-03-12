@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/monitor.h"
 
+
 int main() {
     SystemMonitor monitor;
     monitor.displaySystemInfo();

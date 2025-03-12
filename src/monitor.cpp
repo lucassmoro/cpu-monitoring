@@ -1,6 +1,9 @@
 #include "../include/monitor.h"
 #include <iostream>
 #include <unistd.h>
+#include <QApplication>
+#include <QMainWindow>
+
 
 void SystemMonitor::displaySystemInfo() {
     std::cout << "Displaying system information..." << std::endl;

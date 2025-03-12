@@ -1,37 +1,25 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5)
+
 project(cpu-monitoring)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
-set(Qt6_DIR "C:/Qt/6.5.3/msvc2019_64/lib/cmake/Qt6")
+set(Qt6_DIR C:/Qt/6.5.3/msvc2019_64/lib/cmake/Qt6)
 set(CMAKE_CXX_STANDARD 11)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-qt_standard_project_setup()
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
-qt_add_executable(cpu-monitoring
-    WIN32 MACOSX_BUNDLE
-    src/main.cpp
+if(CMAKE_VERSION VERSION_LESS "3.7.0")
+    set(CMAKE_INCLUDE_CURRENT_DIR ON)
+endif()
+
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
+
+add_executable(cpu-monitoring
+    #src/mainwindow.ui
     src/monitor.cpp
-    src/mainwindow.ui
+    src/main.cpp
 )
 
-target_link_libraries(cpu-monitoring
-    PRIVATE
-        Qt::Core
-        Qt::Widgets
-)
-
-include(GNUInstallDirs)
-
-install(TARGETS cpu-monitoring
-    BUNDLE  DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
-
-qt_generate_deploy_app_script(
-    TARGET cpu-monitoring
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
+target_link_libraries(cpu-monitoring Qt6::Widgets)
