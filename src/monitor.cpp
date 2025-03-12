@@ -1,11 +1,10 @@
 #include "../include/monitor.h"
 #include <iostream>
-#include <unistd.h>
 
 #ifdef _WIN32
     #include <io.h> 
 #else
-    #include <unistd.h>  
+    #include <Windows.h>  
 #endif
 
 #include <QApplication>

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../include/monitor.h"
-
+#include "../include/mainwindow.h"
 
 int main() {
     SystemMonitor monitor;

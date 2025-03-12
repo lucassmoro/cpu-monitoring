@@ -10,6 +10,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+
 if(CMAKE_VERSION VERSION_LESS "3.7.0")
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
@@ -17,9 +18,10 @@ endif()
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 add_executable(cpu-monitoring
-    #src/mainwindow.ui
+    src/mainwindow.ui
     src/monitor.cpp
     src/main.cpp
+    src/mainwindow.cpp
 )
 
 target_link_libraries(cpu-monitoring Qt6::Widgets)
