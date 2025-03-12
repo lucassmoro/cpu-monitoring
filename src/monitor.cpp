@@ -1,9 +1,15 @@
 #include "../include/monitor.h"
 #include <iostream>
 #include <unistd.h>
+
+#ifdef _WIN32
+    #include <io.h> 
+#else
+    #include <unistd.h>  
+#endif
+
 #include <QApplication>
 #include <QMainWindow>
-
 
 void SystemMonitor::displaySystemInfo() {
     std::cout << "Displaying system information..." << std::endl;
@@ -11,7 +17,6 @@ void SystemMonitor::displaySystemInfo() {
         getCPUUsage();
         getMemoryUsage();
         getDiskUsage();
-        sleep(3);
         std::cout << std::endl;
     }
     // getCPUUsage();

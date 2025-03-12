@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(cpu-monitoring)
 
-set(Qt6_DIR C:/Qt/6.5.3/msvc2019_64/lib/cmake/Qt6)
+set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/msvc2019_64")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
