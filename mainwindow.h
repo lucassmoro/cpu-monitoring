@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "monitor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,10 +19,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnOk_Clicked();
-    void on_btnCancel_Clicked();
+    void updateCPUUsage();
 
 private:
     Ui::MainWindow *ui;
+    SystemMonitor *monitor;
 };
 #endif // MAINWINDOW_H

@@ -7,7 +7,7 @@
 class SystemMonitor {
 public:
     void displaySystemInfo();
-    void getCPUUsage();
+    double getCPUUsage();
     void getMemoryUsage();
     void getDiskUsage();
 };

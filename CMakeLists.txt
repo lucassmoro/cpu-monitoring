@@ -9,7 +9,7 @@ qt_add_executable(LoginForm
     WIN32 MACOSX_BUNDLE
     main.cpp
     mainwindow.cpp
-    mainwindow.h
+    monitor.cpp
     mainwindow.ui
 )
 

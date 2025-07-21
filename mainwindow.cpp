@@ -1,26 +1,38 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "monitor.h"
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , monitor(new SystemMonitor)
 {
     ui->setupUi(this);
-    connect(ui->btnOk, SIGNAL(clicked()),this,SLOT(on_btnOk_Clicked()));
-    connect(ui->btnCancel, SIGNAL(clicked()),this,SLOT(on_btnCancel_Clicked()));
+    //monitor = new SystemMonitor();
+
+    // Atualiza a cada 1 segundo
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateCPUUsage);
+    timer->start(1000); 
 }
 
 MainWindow::~MainWindow()
 {
+    delete monitor;
     delete ui;
 }
 
-void MainWindow::on_btnOk_Clicked()
+void MainWindow::updateCPUUsage()
 {
-    qDebug() << "Ok button clicked";
-}
+    double cpu_value = monitor->getCPUUsage();
+    ui->progressBar_2->setValue(static_cast<int>(cpu_value));
 
-void MainWindow::on_btnCancel_Clicked()
-{
-    qDebug() << "Cancel button clicked";
+    if (cpu_value < 20) {
+        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: green; }");
+    } else if (cpu_value < 40) {
+        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
+    } else {
+        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: red; }");
+    }
 }
