@@ -26,13 +26,13 @@ MainWindow::~MainWindow()
 void MainWindow::updateCPUUsage()
 {
     double cpu_value = monitor->getCPUUsage();
-    ui->progressBar_2->setValue(static_cast<int>(cpu_value));
+    ui->progressBar_6->setValue(static_cast<int>(cpu_value) + 40);
 
     if (cpu_value < 20) {
-        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: green; }");
+        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: green; }");
     } else if (cpu_value < 40) {
-        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
+        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
     } else {
-        ui->progressBar_2->setStyleSheet("QProgressBar::chunk { background-color: red; }");
+        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: red; }");
     }
 }

@@ -18,91 +18,47 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>30</y>
-      <width>171</width>
+      <y>50</y>
+      <width>111</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 700 16pt &quot;Segoe UI&quot;;</string>
+     <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>CPU Usage:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QProgressBar" name="progressBar_6">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>161</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel{
-	font: 700 16pt &quot;Segoe UI&quot;;
-}</string>
-    </property>
-    <property name="text">
-     <string>Memory Usage:</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_2">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>90</y>
-      <width>361</width>
+      <x>150</x>
+      <y>60</y>
+      <width>121</width>
       <height>23</height>
      </rect>
     </property>
     <property name="value">
      <number>24</number>
     </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_3">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>40</y>
-      <width>361</width>
-      <height>23</height>
-     </rect>
+    <property name="textVisible">
+     <bool>false</bool>
     </property>
-    <property name="value">
-     <number>24</number>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>110</y>
-      <width>161</width>
-      <height>51</height>
-     </rect>
+    <property name="invertedAppearance">
+     <bool>false</bool>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel{
-	font: 700 16pt &quot;Segoe UI&quot;;
-}</string>
+    <property name="textDirection">
+     <enum>QProgressBar::TopToBottom</enum>
     </property>
-    <property name="text">
-     <string>Disk Usage:</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar_4">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>130</y>
-      <width>361</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
+    <property name="format">
+     <string>%p%</string>
     </property>
    </widget>
   </widget>
