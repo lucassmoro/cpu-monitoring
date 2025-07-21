@@ -26,7 +26,7 @@ MainWindow::~MainWindow()
 void MainWindow::updateCPUUsage()
 {
     double cpu_value = monitor->getCPUUsage();
-    ui->progressBar_6->setValue(static_cast<int>(cpu_value) + 40);
+    ui->progressBar_6->setValue(static_cast<int>(cpu_value));
 
     if (cpu_value < 20) {
         ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: green; }");
