@@ -3,6 +3,7 @@
 #include "monitor.h"
 #include <QTimer>
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -36,11 +37,17 @@ void MainWindow::updateCPUinfos()
     ui->frequency_number->setText(QString("%1 GHz").arg(cpu_frequency, 0, 'f', 2));
     ui->memory_progressbar->setValue(static_cast<int>(memory_value));
 
-    if (cpu_value < 50) {
-        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: green; }");
-    } else if (cpu_value < 80) {
-        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
+    updateProgressBarColor(ui->cpu_progressbar, cpu_value);
+    updateProgressBarColor(ui->memory_progressbar, memory_value);
+}
+
+void MainWindow::updateProgressBarColor(QProgressBar *progressBar, double value){
+    if (value < 50) {
+        progressBar->setStyleSheet("QProgressBar::chunk { background-color: green; }");
+    } else if (value < 80) {
+        progressBar->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
     } else {
-        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: red; }");
+        progressBar->setStyleSheet("QProgressBar::chunk { background-color: red; }");
     }
 }
+

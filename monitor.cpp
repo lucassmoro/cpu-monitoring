@@ -118,6 +118,7 @@ double SystemMonitor::getMemoryUsage() {
         DWORDLONG total = status.ullTotalPhys;
         DWORDLONG used = total - status.ullAvailPhys;
         double usagePercent = (double)used / total * 100.0;
+        std::cout<<"MEM USAGE:"<<usagePercent<<std::endl;
         return usagePercent;
     }
     return -1.0; // erro

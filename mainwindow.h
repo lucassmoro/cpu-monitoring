@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QProgressBar>
 #include "monitor.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +21,7 @@ public:
 
 private slots:
     void updateCPUinfos();
+    void updateProgressBarColor(QProgressBar *progressBar, double value);
 
 private:
     Ui::MainWindow *ui;
