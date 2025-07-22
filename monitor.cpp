@@ -6,6 +6,8 @@
 #include <intrin.h>
 #include <chrono>
 #include <thread>
+#include <powrprof.h>
+#pragma comment(lib, "PowrProf.lib")
 
 #ifdef _WIN32
     #include <io.h> 

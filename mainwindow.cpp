@@ -24,10 +24,13 @@ void MainWindow::updateCPUinfos()
 {
     double cpu_value = monitor->getCPUUsage();
     int numberof_threads = monitor->getThreadsQtd();
-    int numerof_processes = monitor->getProcessQtd();
-    double cpu_frequncy = monitor->getCPUfrequency();
+    int numberof_processes = monitor->getProcessQtd();
+    double cpu_frequency = monitor->getCPUfrequency();
 
     ui->cpu_progressbar->setValue(static_cast<int>(cpu_value));
+    ui->process_number->setText(QString("%1").arg(numberof_processes));
+    ui->threads_number->setText(QString("%1").arg(numberof_threads));
+    ui->frequency_number->setText(QString("%1 GHz").arg(cpu_frequency, 0, 'f', 2));
 
     if (cpu_value < 50) {
         ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: green; }");
