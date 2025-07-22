@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void updateCPUUsage();
+    void updateCPUinfos();
 
 private:
     Ui::MainWindow *ui;

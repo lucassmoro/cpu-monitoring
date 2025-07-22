@@ -9,11 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     , monitor(new SystemMonitor)
 {
     ui->setupUi(this);
-    //monitor = new SystemMonitor();
-
-    // Atualiza a cada 1 segundo
     QTimer *timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainWindow::updateCPUUsage);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateCPUinfos);
     timer->start(1000); 
 }
 
@@ -23,16 +20,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::updateCPUUsage()
+void MainWindow::updateCPUinfos()
 {
     double cpu_value = monitor->getCPUUsage();
-    ui->progressBar_6->setValue(static_cast<int>(cpu_value));
+    int numberof_threads = monitor->getThreadsQtd();
+    int numerof_processes = monitor->getProcessQtd();
+    double cpu_frequncy = monitor->getCPUfrequency();
 
-    if (cpu_value < 20) {
-        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: green; }");
-    } else if (cpu_value < 40) {
-        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
+    ui->cpu_progressbar->setValue(static_cast<int>(cpu_value));
+
+    if (cpu_value < 50) {
+        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: green; }");
+    } else if (cpu_value < 80) {
+        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: yellow; }");
     } else {
-        ui->progressBar_6->setStyleSheet("QProgressBar::chunk { background-color: red; }");
+        ui->cpu_progressbar->setStyleSheet("QProgressBar::chunk { background-color: red; }");
     }
 }
