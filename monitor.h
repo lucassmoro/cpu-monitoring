@@ -9,7 +9,8 @@ public:
     void displaySystemInfo();
     double getCPUUsage();
     double getMemoryUsage();
-    double getDiskUsage();
+    double getDiskUsageC();
+    double getDiskUsageD();
     int getThreadsQtd();
     double getCPUfrequency();
     int getProcessQtd();

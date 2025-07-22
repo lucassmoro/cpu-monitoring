@@ -267,12 +267,28 @@
        <string>Processes</string>
       </property>
      </widget>
+     <widget class="QLabel" name="cpu_porcentage">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>20</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0%</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QLabel" name="memory_label">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>10</y>
         <width>141</width>
         <height>41</height>
@@ -291,9 +307,9 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>150</x>
         <y>20</y>
-        <width>301</width>
+        <width>271</width>
         <height>23</height>
        </rect>
       </property>
@@ -329,14 +345,30 @@
        <string>%p%</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_3">
-     <widget class="QLabel" name="disk_label">
+     <widget class="QLabel" name="memory_porcentage">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>110</y>
-        <width>141</width>
+        <x>430</x>
+        <y>20</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0%</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QLabel" name="diskD_label">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>10</y>
+        <width>151</width>
         <height>41</height>
        </rect>
       </property>
@@ -344,7 +376,149 @@
        <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
       </property>
       <property name="text">
-       <string>Disk Usage:</string>
+       <string>Disk 0 (D:) Usage:</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="diskD_progressbar">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>51</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar::chunk {
+    background: qlineargradient(
+        spread:pad,
+        x1:0, y1:0,
+        x2:1, y2:0,
+        stop:0 rgba(38, 255, 0, 255),
+        stop:0.647727 rgba(251, 255, 0, 255),
+        stop:1 rgba(255, 0, 0, 255)
+    );
+}
+</string>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::BottomToTop</enum>
+      </property>
+      <property name="format">
+       <string>%p%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="diskC_label">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Disk 1 (C:) Usage:</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="diskC_progressbar">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>50</y>
+        <width>51</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar::chunk {
+    background: qlineargradient(
+        spread:pad,
+        x1:0, y1:0,
+        x2:1, y2:0,
+        stop:0 rgba(38, 255, 0, 255),
+        stop:0.647727 rgba(251, 255, 0, 255),
+        stop:1 rgba(255, 0, 0, 255)
+    );
+}
+</string>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::BottomToTop</enum>
+      </property>
+      <property name="format">
+       <string>%p%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="diskD_porcentage">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>220</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="diskC_porcentage">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>220</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 14pt &quot;Yu Gothic UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0%</string>
       </property>
      </widget>
     </widget>

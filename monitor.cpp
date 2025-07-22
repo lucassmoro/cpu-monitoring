@@ -125,13 +125,25 @@ double SystemMonitor::getMemoryUsage() {
 }
 
 
-double SystemMonitor::getDiskUsage() {
-    ULARGE_INTEGER freeBytes, totalBytes, totalFreeBytes;
-    if (GetDiskFreeSpaceEx(nullptr, &freeBytes, &totalBytes, &totalFreeBytes)) {
-        ULONGLONG used = totalBytes.QuadPart - freeBytes.QuadPart;
-        double usagePercent = (double)used / totalBytes.QuadPart * 100.0;
+double SystemMonitor::getDiskUsageC() {
+    ULARGE_INTEGER freeBytesAvailable, totalBytes, totalFreeBytes;
+    if (GetDiskFreeSpaceEx(L"C:\\", &freeBytesAvailable, &totalBytes, &totalFreeBytes)) {
+        ULONGLONG used = totalBytes.QuadPart - totalFreeBytes.QuadPart;
+        double usagePercent = static_cast<double>(used) / totalBytes.QuadPart * 100.0;
+        std::cout<<"Disk C:"<<usagePercent<<std::endl;
         return usagePercent;
     }
     return -1.0; // erro
 }
+double SystemMonitor::getDiskUsageD() {
+    ULARGE_INTEGER freeBytesAvailable, totalBytes, totalFreeBytes;
+    if (GetDiskFreeSpaceEx(L"D:\\", &freeBytesAvailable, &totalBytes, &totalFreeBytes)) {
+        ULONGLONG used = totalBytes.QuadPart - totalFreeBytes.QuadPart;
+        double usagePercent = static_cast<double>(used) / totalBytes.QuadPart * 100.0;
+        std::cout<<"Disk D:"<<usagePercent<<std::endl;
+        return usagePercent;
+    }
+    return -1.0; // erro
+}
+
 
