@@ -3,7 +3,7 @@
 //     monitor.displaySystemInfo();
 
 #include "mainwindow.h"
-
+#include <QMainWindow>
 #include <QApplication>
 
 int main(int argc, char *argv[])
